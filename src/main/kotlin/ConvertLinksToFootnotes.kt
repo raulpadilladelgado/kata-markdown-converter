@@ -1,0 +1,3 @@
+class ConvertLinksToFootnotes {
+    fun execute() {}
+}
