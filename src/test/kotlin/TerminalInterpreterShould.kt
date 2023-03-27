@@ -1,6 +1,7 @@
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 class TerminalInterpreterShould {
     @Test
@@ -12,6 +13,16 @@ class TerminalInterpreterShould {
 
         verify {
             convertLinksToFootnotes.execute()
+        }
+    }
+
+    @Test
+    fun `fail if the given command doesn't exist`() {
+        val convertLinksToFootnotes = mockk<ConvertLinksToFootnotes>(relaxed = true)
+        val arguments = arrayOf("wrong-command")
+
+        assertThrows<UnknownCommandError> {
+            TerminalInterpreter(convertLinksToFootnotes).execute(arguments)
         }
     }
 }

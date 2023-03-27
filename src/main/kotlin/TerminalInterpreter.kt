@@ -2,6 +2,8 @@ class TerminalInterpreter(private val convertLinksToFootnotes: ConvertLinksToFoo
     fun execute(args: Array<String>) {
         if (args[0] == "link2footnote") {
             convertLinksToFootnotes.execute()
+            return
         }
+        throw UnknownCommandError()
     }
 }
