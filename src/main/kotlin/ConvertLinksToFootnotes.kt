@@ -1,3 +1,3 @@
 class ConvertLinksToFootnotes {
-    fun execute() {}
+    fun execute(sourceFilePath: String, outputFilePath: String) {}
 }

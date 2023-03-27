@@ -7,12 +7,12 @@ class TerminalInterpreterShould {
     @Test
     fun `redirect to replace link by footnotes when it is specified by argument`() {
         val convertLinksToFootnotes = mockk<ConvertLinksToFootnotes>(relaxed = true)
-        val arguments = arrayOf("link2footnote")
+        val arguments = arrayOf("link2footnote", "source.md", "output.md")
 
         TerminalInterpreter(convertLinksToFootnotes).execute(arguments)
 
         verify {
-            convertLinksToFootnotes.execute()
+            convertLinksToFootnotes.execute("source.md", "output.md")
         }
     }
 
