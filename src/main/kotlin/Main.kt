@@ -1,3 +1,9 @@
 fun main(args: Array<String>) {
-    TerminalInterpreter(ConvertLinksToFootnotes()).execute(args)
+    TerminalInterpreter(
+        ConvertLinksToFootnotes(
+            FileReaderFromLocalFilesystem(),
+            FileWriterToLocalFilesystem(),
+            TextWithFootnotes()
+        )
+    ).execute(args)
 }

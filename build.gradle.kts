@@ -11,8 +11,9 @@ repositories {
 }
 
 dependencies {
-    implementation("io.mockk:mockk:1.13.4")
+    testImplementation("io.mockk:mockk:1.13.4")
     testImplementation(kotlin("test"))
+    testImplementation("org.mockito:mockito-inline:4.11.0")
 }
 
 tasks.test {
